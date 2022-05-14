@@ -3,6 +3,7 @@ $('#button').on('click', getData);
 
 
 function getData() {
+    const api_key="";
     let city = $('input').val();
     $.ajax({
         type: 'GET',
