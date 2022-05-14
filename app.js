@@ -3,7 +3,6 @@ $('#button').on('click', getData);
 
 
 function getData() {
-    var api_key="";
     let city = $('input').val();
     $.ajax({
         type: 'GET',
@@ -17,3 +16,13 @@ function getData() {
         }
     })
 }
+
+
+$(".open_close_search").click(function(){
+    $(".input-container").toggle();
+  });
+
+
+
+
+
