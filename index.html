@@ -7,12 +7,15 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<title>Air Quality App</title>
+	<div class="login-container">
+		<h1 id="login-text">Login</h1>
+	</div>
 	<h1 id="title">Air Pollution App</h1>
 	<div class="main-container">
 		<div class="input-container">
 
-			<button id="button">GET DATA</button>
-			<input id="city"type="text">
+			<button id="button">SEARCH</button>
+			<input id="city"type="text" onkeydown="return /[a-z]/i.test(event.key)">
 	
 		</div>
 	
