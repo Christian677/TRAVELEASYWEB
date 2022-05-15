@@ -2,10 +2,8 @@ $('#button').on('click', getData);
 let input = $('input');
 
 
-
-
 function getData() {
-    const api_key="cef1524dc71fe4159e2a378ada47a50edacf5ccd";
+    const api_key="";
     let city = $('input').val();
 
 
@@ -17,6 +15,9 @@ function getData() {
     if( $('input').val() ==""){
 
         $('p').html('Please insert a valid city name');
+
+
+        
 
 //if input field is NOT empty, api call goes on
     }else{
@@ -31,7 +32,7 @@ function getData() {
             console.log('success', data);
         },
         error: function(data){
-            $('p').html(data);
+            $('p').html('error', data);
         }
     })
 }
@@ -43,7 +44,7 @@ $('input').on('keypress',function(e) {
     if(e.which == 13 && input.val()== "") {
         alert('stringa vuota');
     }else if(e.which == 13 && input.val()!= ""){
-getData();
+        getData();
     }
 });
 
