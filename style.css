@@ -43,30 +43,23 @@ body{
 }
 
 .Logout-container{
-  width:300px;
+  width:90px;
   margin: 0 auto;
   position: relative;
-  top:2vh;
+  top:2%;
+  left:43%;
   text-align: center;
 
 }
 
 #logout-button{
-  color: #000000;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 16px;
   padding: 10px 10px;
-  background-color:#ffffff;
   border:none;  
   border-radius: .5rem;
-  cursor: pointer;
-  
-  transition:.3s;
-}
-
-#logout-button:hover{
-  background-color: #000;
-  color:#fff;
+  text-decoration: none;
 }
 
 .open-search-container{
@@ -79,8 +72,8 @@ body{
 
 .open_close_search{
   width:200px;
-  background-color:#111827;
-  color:#fff;
+  background-color:#fff;
+  color:#111827;
   margin:0 auto;
   border:none;
   position: inherit;
@@ -91,26 +84,6 @@ body{
   display: block;  
   padding: .55rem 1rem;
 }
-
-
-
-
-
-
-
-
-/* .main-container{
-    width:320px;
-    height:550px;
-    background-color:blue;
-    position: relative;
-    top:40px;
-    margin: 0 auto;
-    display: flex;
-    display: -webkit-flex;
-    flex-direction: column;
-    border-radius: .5rem;
-} */
 
 
 
@@ -134,10 +107,10 @@ input{
   padding: .75rem 1rem;
   border-radius: .5rem;
   border:0;
-  background-color:#111827;
+  background-color:#fff;
   margin-left: 10px;
-  color:#ffffff;
-  caret-color: #ffffff;
+  color:#111827;
+  caret-color: #111827;
 }
 .message-container{
   width:400px;
@@ -151,11 +124,11 @@ input{
 
 
 #button {
-  background-color: #111827;
+  background-color: #fff;
   border: 0;
   border-radius: .5rem;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #111827;
   font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: .875rem;
   font-weight: 600;
