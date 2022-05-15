@@ -42,7 +42,3 @@ function getData() {
       $('.input-container').css('visibility','hidden');
   });
 
-
-
-
-
