@@ -21,7 +21,7 @@
 			</div>
 			<div class="input-container">
 				<button id="button">Search</button>
-				<input id="city"type="text" onkeydown="return /[a-z, ]/i.test(event.key)" onblur="if (this.value == '') {this.value = '';}"
+				<input id="city"type="text" onkeypress="getData()" onkeydown="return /[a-z, ]/i.test(event.key)" onblur="if (this.value == '') {this.value = '';}"
     			onfocus="if (this.value == '') {this.value = '';}"	placeholder="Milan, London...">
 			</div>
 			

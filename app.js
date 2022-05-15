@@ -5,8 +5,12 @@ let input = $('input');
 
 
 function getData() {
-    const api_key="";
+    const api_key="cef1524dc71fe4159e2a378ada47a50edacf5ccd";
     let city = $('input').val();
+
+
+    var e = $.Event( "keypress", { keyCode: 13 } );
+    $('#city').trigger(e);
 
     //If input field is empty, emssage shows up
     
