@@ -1,5 +1,5 @@
 $('#button').on('click', getData);
-
+let input = $('input');
 
 
 
@@ -7,12 +7,14 @@ $('#button').on('click', getData);
 function getData() {
     const api_key="";
     let city = $('input').val();
+
+    //If input field is empty, emssage shows up
     
     if( $('input').val() ==""){
 
         $('p').html('Please insert a valid city name');
 
-
+//if input field is NOT empty, api call goes on
     }else{
         $('p').css('visibility','hidden');
 
@@ -31,6 +33,7 @@ function getData() {
 }
 
 
+// search bar opens up on click
 
   $('.open_close_search').click(function(){
     if ( $('.input-container').css('visibility') == 'hidden' )
