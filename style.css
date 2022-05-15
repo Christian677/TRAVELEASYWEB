@@ -89,7 +89,7 @@ body{
 
 .input-container{
   margin: 0 auto;
-  width:280px;
+  width:290px;
   position: relative;
   top:63px;
   height:36px;
@@ -114,14 +114,15 @@ input{
   position: relative;
   top:0;
 }
+
 .message-container{
   width:400px;
   height:50px;
   margin: 0 auto;
   position:relative;
-  top:80px;
+  top:90px;
   text-align:center;
-  background-color: red;
+  color:#fff;
 }
 
 

@@ -2,9 +2,20 @@ $('#button').on('click', getData);
 
 
 
+
+
 function getData() {
     const api_key="";
     let city = $('input').val();
+    
+    if( $('input').val() ==""){
+
+        $('p').html('Please insert a valid city name');
+
+
+    }else{
+        $('p').css('visibility','hidden');
+
     $.ajax({
         type: 'GET',
         url: `https://api.waqi.info/feed/${city}/?token=${api_key}`,
@@ -16,6 +27,7 @@ function getData() {
             console.log('error', data);
         }
     })
+}
 }
 
 
