@@ -19,8 +19,12 @@ function getData() {
 }
 
 
-$(".open_close_search").click(function(){
-    $(".input-container").toggle();
+
+  $('.open_close_search').click(function(){
+    if ( $('.input-container').css('visibility') == 'hidden' )
+      $('.input-container').css('visibility','visible');
+    else
+      $('.input-container').css('visibility','hidden');
   });
 
 

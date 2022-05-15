@@ -89,11 +89,11 @@ body{
 
 .input-container{
   margin: 0 auto;
-  width:300px;
+  width:280px;
   position: relative;
-  top:60px;
-  height:50px;
-  display:none;
+  top:63px;
+  height:36px;
+  visibility: hidden;
 }
 
 
@@ -104,13 +104,15 @@ input:focus{
 }
 
 input{
-  padding: .75rem 1rem;
+  padding:.70rem 1rem 0.60rem 1rem;
   border-radius: .5rem;
-  border:0;
+  border:none;
   background-color:#fff;
   margin-left: 10px;
   color:#111827;
   caret-color: #111827;
+  position: relative;
+  top:0;
 }
 .message-container{
   width:400px;
@@ -119,6 +121,7 @@ input{
   position:relative;
   top:80px;
   text-align:center;
+  background-color: red;
 }
 
 
@@ -133,7 +136,7 @@ input{
   font-size: .875rem;
   font-weight: 600;
   line-height: 1.25rem;
-  padding: .75rem 1rem;
+  padding: .50rem 1rem;
   text-align: center;
   text-decoration: none #D1D5DB solid;
   text-decoration-thickness: auto;
