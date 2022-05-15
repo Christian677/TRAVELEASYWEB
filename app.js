@@ -5,7 +5,7 @@ let input = $('input');
 
 
 function getData() {
-    const api_key="";
+    const api_key="2243bb736af6dfdad57ae3b1d912e4f69ec396c6";
     let city = $('input').val();
 
     //If input field is empty, emssage shows up
