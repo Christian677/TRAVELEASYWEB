@@ -176,6 +176,11 @@ input{
   margin: 0 auto;
 }
 
+.Logout-container {
+  position: relative;
+  left: 2px;
+  margin: 0 auto;
+}
 
 
 }
