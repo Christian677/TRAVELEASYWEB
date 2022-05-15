@@ -27,14 +27,25 @@ function getData() {
         url: `https://api.waqi.info/feed/${city}/?token=${api_key}`,
         datatype: 'JSON',
         success: function (data){
+            $('p').css('visibility','hidden');
             console.log('success', data);
         },
         error: function(data){
-            console.log('error', data);
+            $('p').html(data);
         }
     })
 }
 }
+
+//if users presses enter in the input field
+
+$('input').on('keypress',function(e) {
+    if(e.which == 13 && input.val()== "") {
+        alert('stringa vuota');
+    }else if(e.which == 13 && input.val()!= ""){
+getData();
+    }
+});
 
 
 // search bar opens up on click
