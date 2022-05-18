@@ -10,7 +10,7 @@ function getData() {
     var e = $.Event( "keypress", { keyCode: 13 } );
     $('#city').trigger(e);
 
-    //If input field is empty, emssage shows up
+    //If input field is empty, message shows up
     
     if( $('input').val() == ''){
 
@@ -29,18 +29,20 @@ function getData() {
 
     .done(function(data){
 
+        // if city exists...
+
         if(data.status == 'ok'){
             $('p').css('visibility','hidden');
             console.log('corretto', data);
 
-
+        //if city doesn't exist, show message to user
         }else if(data.status == 'error'){
             $('p').css('visibility','visible');
             $('p').html('Please insert a valid city name');
         }
     })
 
-
+        // if server doesn't respond...
     .fail(function(data){
         console.log('fail', data);
 
