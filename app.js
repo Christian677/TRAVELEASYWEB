@@ -12,11 +12,9 @@ function getData() {
 
     //If input field is empty, emssage shows up
     
-    if( $('input').val() ==""){
+    if( $('input').val() == ''){
 
-        $('p').html('Please insert a valid city name');
-
-
+        $('p').html('Please type a city name');
         
 
 //if input field is NOT empty, api call goes on
@@ -26,15 +24,27 @@ function getData() {
     $.ajax({
         type: 'GET',
         url: `https://api.waqi.info/feed/${city}/?token=${api_key}`,
-        datatype: 'JSON',
-        success: function (data){
+        datatype: 'JSON'
+    })
+        
+    .done(function(data){
+
+        if(data.status == 'ok'){
             $('p').css('visibility','hidden');
-            console.log('success', data);
-        },
-        error: function(data){
-            $('p').html('error', data);
+            console.log('corretto', data);
+
+
+        }else if(data.status == 'error'){
+            $('p').css('visibility','visible');
+            $('p').html('Please insert a valid city name');
         }
     })
+
+
+    .fail(function(data){
+        console.log('fail', data);
+    })
+    
 }
 }
 
