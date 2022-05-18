@@ -26,7 +26,7 @@ function getData() {
         url: `https://api.waqi.info/feed/${city}/?token=${api_key}`,
         datatype: 'JSON'
     })
-        
+
     .done(function(data){
 
         if(data.status == 'ok'){
@@ -43,6 +43,7 @@ function getData() {
 
     .fail(function(data){
         console.log('fail', data);
+
     })
     
 }
