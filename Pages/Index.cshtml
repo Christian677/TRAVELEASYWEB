@@ -1,0 +1,56 @@
+﻿@page
+<!doctype html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="it">
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="~/css/site.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<title>Air Level</title>
+</head>
+<body>
+	<div class="external-container">
+		<h1 id="title">Air Level</h1>
+
+		<div class="inner-container">
+			<div class="Logout-container">
+				<a id="logout-button" href="">logout</a>
+			</div>
+			<div class="open-search-container">
+					<button class="open_close_search">Search Bar</button>
+			</div>
+			<div class="input-container">
+				<button id="button">Search</button>
+				<input id="city"type="text" onkeydown="return /[a-z, ]/i.test(event.key)" onblur="if (this.value == '') {this.value = '';}"
+    			onfocus="if (this.value == '') {this.value = '';}"	placeholder="Milan, London...">
+			</div>
+			
+		<div class="message-container">
+			<p></p>
+		</div>
+		</div>
+
+
+	</div>
+		
+	<!-- 	<div class="main-container">
+			
+			
+			
+	
+		
+		</div> -->
+	
+	
+	
+
+
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="~/js/site.js"></script>
+
+
+</body>
+
+</html>
