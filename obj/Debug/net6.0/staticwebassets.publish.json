@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "Hash": "z4pcomEw5rEReuDt4LI9gSwrIWDEf3Wi1Qe86wkFzeI=",
+  "Hash": "vQUKyqtF3TO+TsMTIxNNbSBSO1ueLvl3Mg5mm1NZBRY=",
   "Source": "TRAVELEASYWEB",
   "BasePath": "_content/TRAVELEASYWEB",
   "Mode": "Default",
-  "ManifestType": "Build",
+  "ManifestType": "Publish",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
