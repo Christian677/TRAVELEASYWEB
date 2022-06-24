@@ -1,7 +1,0 @@
-C:\Users\pasqu\Documents\VSCode\TRAVELEASYWEB\bin\Debug\net6.0\publish\TRAVELEASYWEB.exe
-C:\Users\pasqu\Documents\VSCode\TRAVELEASYWEB\bin\Debug\net6.0\publish\appsettings.Development.json
-C:\Users\pasqu\Documents\VSCode\TRAVELEASYWEB\bin\Debug\net6.0\publish\appsettings.json
-C:\Users\pasqu\Documents\VSCode\TRAVELEASYWEB\bin\Debug\net6.0\publish\TRAVELEASYWEB.dll
-C:\Users\pasqu\Documents\VSCode\TRAVELEASYWEB\bin\Debug\net6.0\publish\TRAVELEASYWEB.deps.json
-C:\Users\pasqu\Documents\VSCode\TRAVELEASYWEB\bin\Debug\net6.0\publish\TRAVELEASYWEB.runtimeconfig.json
-C:\Users\pasqu\Documents\VSCode\TRAVELEASYWEB\bin\Debug\net6.0\publish\TRAVELEASYWEB.pdb
