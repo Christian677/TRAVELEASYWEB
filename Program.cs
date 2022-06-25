@@ -13,6 +13,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -22,4 +23,5 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.UseMiddleware<ApiKey>("cef1524dc71fe4159e2a378ada47a50edacf5ccd");
 app.Run();
