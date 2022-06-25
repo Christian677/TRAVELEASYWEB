@@ -13,6 +13,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//Se devi mettere l'API Key dentro Index.cshtml.cs, injectala usando i services. Vai sulla doc di Microsoft
+//e guarda come funziona l'aggiunta con AddScoped<IApiKey, ApiKey> (classe che devi fare te)
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -23,5 +25,4 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.UseMiddleware<ApiKey>("cef1524dc71fe4159e2a378ada47a50edacf5ccd");
 app.Run();
