@@ -1,29 +1,30 @@
-﻿$('#button').on('click', getData);
-let input = $('input');
+﻿
+﻿document.querySelector('#button').addEventListener('click', getData);
+let input = document.querySelector('input');
 
 
 function getData() {
     const api_key = "";
-    let city = $('input').val();
+    let city = document.querySelector('input').value;
 
 
     var e = $.Event("keypress", { keyCode: 13 });
-    $('#city').trigger(e);
+    document.querySelector('#city').trigger(e);
 
     //If input field is empty, message shows up
 
-    if ($('input').val() == '') {
+    if (document.querySelector('input').value == '') {
 
-        $('p').html('Please type a city name');
+        document.querySelector('p').html('Please type a city name');
 
 
         //if input field is NOT empty, api call goes on
     } else {
-        $('p').css('visibility', 'hidden');
+        document.querySelector('p').css('visibility', 'hidden');
 
         $.ajax({
             type: 'GET',
-            url: `https://api.waqi.info/feed/${city}/?token=${api_key}`,
+            url: https://api.waqi.info/feed/${city}/?token=${api_key},
             datatype: 'JSON'
         })
 
@@ -32,13 +33,13 @@ function getData() {
                 // if city exists...
 
                 if (data.status == 'ok') {
-                    $('p').css('visibility', 'hidden');
+                    document.querySelector('p').css('visibility', 'hidden');
                     console.log('corretto', data);
 
                     //if city doesn't exist, show message to user
                 } else if (data.status == 'error') {
-                    $('p').css('visibility', 'visible');
-                    $('p').html('Please insert a valid city name');
+                    document.querySelector('p').css('visibility', 'visible');
+                    document.querySelector('p').html('Please insert a valid city name');
                 }
             })
 
@@ -53,10 +54,10 @@ function getData() {
 
 //if users presses enter in the input field
 
-$('input').on('keypress', function (e) {
-    if (e.which == 13 && input.val() == "") {
+document.querySelector('input').addEventListener('keypress', function (e) {
+    if (e.which == 13 && input.value == "") {
         alert('stringa vuota');
-    } else if (e.which == 13 && input.val() != "") {
+    } else if (e.which == 13 && input.value != "") {
         getData();
     }
 });
@@ -64,9 +65,9 @@ $('input').on('keypress', function (e) {
 
 // search bar opens up on click
 
-$('.open_close_search').click(function () {
-    if ($('.input-container').css('visibility') == 'hidden')
-        $('.input-container').css('visibility', 'visible');
+document.querySelector('.open_close_search').click(function () {
+    if (document.querySelector('.input-container').css('visibility') == 'hidden')
+        document.querySelector('.input-container').css('visibility', 'visible');
     else
-        $('.input-container').css('visibility', 'hidden');
+        document.querySelector('.input-container').css('visibility', 'hidden');
 });
