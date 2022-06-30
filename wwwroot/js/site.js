@@ -1,11 +1,11 @@
-﻿
-﻿document.querySelector('#button').addEventListener('click', getData);
+﻿/* 
+let searchButton = document.querySelector('#button').addEventListener('click', getData);
 let input = document.querySelector('input');
 
 
 function getData() {
     const api_key = "";
-    let city = document.querySelector('input').value;
+
 
 
     var e = $.Event("keypress", { keyCode: 13 });
@@ -24,7 +24,7 @@ function getData() {
 
         $.ajax({
             type: 'GET',
-            url: https://api.waqi.info/feed/${city}/?token=${api_key},
+            url: '',
             datatype: 'JSON'
         })
 
@@ -71,3 +71,47 @@ document.querySelector('.open_close_search').click(function () {
     else
         document.querySelector('.input-container').css('visibility', 'hidden');
 });
+ */
+
+
+
+
+
+
+searchButton.onclick = async function getData() {
+
+    let city = document.querySelector('input').value;
+
+    //API CALL  with axios                   
+    axios.get(`https://api.waqi.info/feed/${city}/?token=${api_key}`)
+
+        .then(
+
+            async response => {
+
+                let data = await response.data
+
+                //if the request can't be processed (user is not found)
+
+                if (response.status !== 200) {
+
+                    throw new Error(response.status);
+
+
+                } else {
+
+
+                    //if the call works and the request is being 
+                    console.log(data);
+
+                }
+            })
+
+
+        //In case of errors, shows 
+        .catch(error =>
+            alert(error));
+
+
+
+};
