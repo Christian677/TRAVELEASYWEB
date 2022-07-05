@@ -74,13 +74,15 @@ document.querySelector('.open_close_search').click(function () {
  */
 
 console.log("ciao mondo");
+let btn = document.querySelector('.open_close_search');
 
-searchButton.onclick = async function getData() {
+btn.onclick = async function getData() {
 
-    let city = document.querySelector('input').value;
+    const api_key = '2243bb736af6dfdad57ae3b1d912e4f69ec396c6';
+
 
     //API CALL  with axios                   
-    axios.get(`https://api.waqi.info/feed/${city}/?token=${api_key}`)
+    axios.get(`https://api.waqi.info/feed/Milan/?token=${api_key}`)
 
         .then(
 
@@ -88,27 +90,26 @@ searchButton.onclick = async function getData() {
 
                 let data = await response.data
 
-                //if the request can't be processed (user is not found)
+                //if the request can't be processed (city is not found)
 
                 if (response.status !== 200) {
 
                     throw new Error(response.status);
-
 
                 } else {
 
 
                     //if the call works and the request is being 
                     console.log(data);
-
                 }
             })
 
 
         //In case of errors, shows 
         .catch(error =>
-            alert(error));
+            alert('Please type a valid city name'));
 
 
 
 };
+
