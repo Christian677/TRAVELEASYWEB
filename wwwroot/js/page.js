@@ -126,3 +126,12 @@ openbar.addEventListener('click', function () {
        document.querySelector('.input-container').style.visibility = 'hidden'
     }
 })
+
+inputField.addEventListener('keydown', function (e) {
+
+    if (e.keyCode === 13 && inputField.value == '') {
+        alert('key was pressed');
+    } else if (e.keyCode === 13 && !inputField.value == '') {
+        btn.onclick();
+    }
+});
