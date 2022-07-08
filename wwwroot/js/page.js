@@ -73,16 +73,17 @@ document.querySelector('.open_close_search').click(function () {
 });
  */
 
-console.log("ciao mondo");
-let btn = document.querySelector('.open_close_search');
+
+let btn = document.querySelector('#button');
 
 btn.onclick = async function getData() {
+    let city = document.querySelector('#city').value;
 
     const api_key = '';
 
 
     //API CALL  with axios                   
-    axios.get(`https://api.waqi.info/feed/Milan/?token=${api_key}`)
+    axios.get(`https://api.waqi.info/feed/${city}/?token=${api_key}`)
 
         .then(
 
@@ -113,3 +114,15 @@ btn.onclick = async function getData() {
 
 };
 
+let openbar = document.querySelector('.open_close_search');
+
+
+openbar.addEventListener('click', function () {
+
+    
+    if (document.querySelector('.input-container').style.visibility == 'hidden') {
+        document.querySelector('.input-container').style.visibility = 'visible'
+    } else {
+       document.querySelector('.input-container').style.visibility = 'hidden'
+    }
+})
