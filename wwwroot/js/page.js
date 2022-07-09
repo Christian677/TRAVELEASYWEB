@@ -1,84 +1,24 @@
-﻿/* 
-let searchButton = document.querySelector('#button').addEventListener('click', getData);
-let input = document.querySelector('input');
-
-
-function getData() {
-    const api_key = "";
-
-
-
-    var e = $.Event("keypress", { keyCode: 13 });
-    document.querySelector('#city').trigger(e);
-
-    //If input field is empty, message shows up
-
-    if (document.querySelector('input').value == '') {
-
-        document.querySelector('p').html('Please type a city name');
-
-
-        //if input field is NOT empty, api call goes on
-    } else {
-        document.querySelector('p').css('visibility', 'hidden');
-
-        $.ajax({
-            type: 'GET',
-            url: '',
-            datatype: 'JSON'
-        })
-
-            .done(function (data) {
-
-                // if city exists...
-
-                if (data.status == 'ok') {
-                    document.querySelector('p').css('visibility', 'hidden');
-                    console.log('corretto', data);
-
-                    //if city doesn't exist, show message to user
-                } else if (data.status == 'error') {
-                    document.querySelector('p').css('visibility', 'visible');
-                    document.querySelector('p').html('Please insert a valid city name');
-                }
-            })
-
-            // if server doesn't respond...
-            .fail(function (data) {
-                console.log('fail', data);
-
-            })
-
-    }
-}
-
-//if users presses enter in the input field
-
-document.querySelector('input').addEventListener('keypress', function (e) {
-    if (e.which == 13 && input.value == "") {
-        alert('stringa vuota');
-    } else if (e.which == 13 && input.value != "") {
-        getData();
-    }
-});
-
-
-// search bar opens up on click
-
-document.querySelector('.open_close_search').click(function () {
-    if (document.querySelector('.input-container').css('visibility') == 'hidden')
-        document.querySelector('.input-container').css('visibility', 'visible');
-    else
-        document.querySelector('.input-container').css('visibility', 'hidden');
-});
- */
-let inputField = document.querySelector('input');
+﻿let inputField = document.querySelector('input');
 let btn = document.querySelector('#button');
 let errorOne = document.querySelector('#message');
 let errorContainer = document.querySelector('.message-container');
 
 
 btn.onclick = async function getData() {
+
+
+            //if input is empty, throws an error
+
+    if (inputField.value == '') {
+
+        errorOne.style.visibility = 'visible';
+        errorOne.textContent = 'Please type a city name';
+
+    } else
+
+    //if input is not empty, api call follows
+    {
+
     let city = document.querySelector('#city').value;
 
     const api_key = '';
@@ -98,25 +38,22 @@ btn.onclick = async function getData() {
                 if (response.status !== 200) {
 
                     throw new Error(response.status);
-                    console.log(response);
-                    console.log('città non trovata', 'errore 200');
+                    console.log(response, 'status different from 200');
 
                 } else {
 
                     //if call works but city doesn't exist - user has typed a wrong city
+
                     if (data.status == 'error') {
                         errorOne.style.visibility = 'visible';
-                        errorOne.style.color = "#000000";
-                        errorOne.textContent = 'City name is invalid or not in the database';
-                    }
-                    //if call works and city exists
-                    else if (data.status == 'ok') {
+                        errorOne.textContent = 'City not found or not in the database';
+
+                        //city is found, data gets collected
+
+                    } else if (data.status == 'ok') {
                         errorOne.style.visibility = 'hidden';
-                        console.log('corretto:', data);
+                        console.log(data);
                     }
-
-                    
-
                 }
 
             })
@@ -124,14 +61,18 @@ btn.onclick = async function getData() {
 
         //In case of errors, shows 
         .catch(error =>
-            console.log(error.message));
+            console.log(error)
+
+
+
+        );
 
 
 
 
 };
 
-
+    }
 
 
 
@@ -148,15 +89,3 @@ openSearchBar.addEventListener('click', function () {
        document.querySelector('.input-container').style.visibility = 'hidden'
     }
 })
-
-
-
-//inputField.addEventListener('keydown', function (e) {
-
-  //  if (e.keyCode === 13 && inputField.value == '') {
-  //      errorOne.style.color = "#000000";
-  //      errorOne.textContent = 'City name is missing!';
-  //  } else if (e.keyCode === 13 && !inputField.value == '') {
-  //      btn.onclick();
-  //  }
-//});
