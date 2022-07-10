@@ -6,22 +6,16 @@ let errorContainer = document.querySelector('.message-container');
 
 btn.onclick = async function getData() {
 
-
-            //if input is empty, throws an error
-
     if (inputField.value == '') {
 
         errorOne.style.visibility = 'visible';
         errorOne.textContent = 'Please type a city name';
 
-    } else
-
-    //if input is not empty, api call follows
-    {
+    } else {
 
     let city = document.querySelector('#city').value;
 
-    const api_key = '       ';
+    const api_key = '2243bb736af6dfdad57ae3b1d912e4f69ec396c6';
 
 
     //API CALL  with axios                   
@@ -48,11 +42,15 @@ btn.onclick = async function getData() {
                         errorOne.style.visibility = 'visible';
                         errorOne.textContent = 'City not found or not in the database';
 
-                        //city is found, data gets collected
-
                     } else if (data.status == 'ok') {
                         errorOne.style.visibility = 'hidden';
-                        console.log(data);
+                        let particulateTen = data.data.forecast.daily.pm10[0].avg;
+                        let particulateTwo = data.data.forecast.daily.pm25[0].avg;
+                        console.log(data.data); 
+                        console.log(particulateTen);
+                        console.log(particulateTwo);
+                        let cityName = data.data.city.name;
+                        console.log(cityName);
                     }
                 }
 
