@@ -160,6 +160,23 @@ input {
     position:relative;
     top:80px;
     font-family: montserrat;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+}
+
+.location-container, .airpollution{
+display: block;
+height:50px;
+justify-content: center;
+}
+
+#location, #air{
+    text-align: center;
+    position: relative;
+    top:15px;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
 }
 
 
@@ -177,10 +194,9 @@ input {
     padding: .50rem 1rem;
     text-align: center;
     text-decoration: none #D1D5DB solid;
-    text-decoration-thickness: auto;
-    
+    text-decoration-thickness: auto;    
     -webkit-box-shadow: 2px 3px 14px 1px rgba(0,0,0,0.53); 
-box-shadow: 2px 3px 14px 1px rgba(0,0,0,0.53);
+    box-shadow: 2px 3px 14px 1px rgba(0,0,0,0.53);
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
@@ -206,9 +222,9 @@ box-shadow: 2px 3px 14px 1px rgba(0,0,0,0.53);
 
 
 
+/*MOBILE*/
 
-
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 415px) {
     .external-container {
         width: 92%;
         margin: 0 auto;
@@ -231,8 +247,30 @@ box-shadow: 2px 3px 14px 1px rgba(0,0,0,0.53);
         left: 2px;
         margin: 0 auto;
     }
+    .message-container{
+        top:45px;
+    }
 
     .data-container{
         width: 80%;
+        top:100px;
+    }
+    #location{
+        font-size: 0.8rem;
+    }
+}
+
+/* IPHONE SE */
+@media only screen and (max-width: 376px){
+    body{
+        height:105vh;
+    }
+
+    .external-container{
+        height:95vh;
+    }
+    
+    #location{
+        font-size: 0.8rem;
     }
 }

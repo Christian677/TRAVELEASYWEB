@@ -2,6 +2,8 @@
 let btn = document.querySelector('#button');
 let errorOne = document.querySelector('#message');
 let errorContainer = document.querySelector('.message-container');
+let logoutButton = document.querySelector('#logout-button');
+let airCondition;
 
 
 btn.onclick = async function getData() {
@@ -40,17 +42,40 @@ btn.onclick = async function getData() {
 
                     if (data.status == 'error') {
                         errorOne.style.visibility = 'visible';
-                        errorOne.textContent = 'City not found or not in the database';
+                        errorOne.textContent = 'No result for your query';
 
                     } else if (data.status == 'ok') {
                         errorOne.style.visibility = 'hidden';
-                        let particulateTen = data.data.forecast.daily.pm10[0].avg;
-                        let particulateTwo = data.data.forecast.daily.pm25[0].avg;
+                        let particulateTen = data.data.forecast.daily.pm10[2].avg;
+                        let particulateTwo = data.data.forecast.daily.pm25[2].avg;
+                        let location = document.querySelector('#location');
+                        let airPollution = document.querySelector('#air');
+                        console.log(data.data)
+                        console.log(data.data.aqi);
+                        
+                        if (data.data.aqi >= 0 && data.data.aqi <= 50){
+                            airCondition = 'Good';
+                        } else if(data.data.aqi >= 51 && data.data.aqi <= 100){
+                            airCondition = 'Moderate';
+                        } else if(data.data.aqi >= 101 && data.data.aqi <= 150){
+                            airCondition ='Unhealthy for sensitive groups';
+                        } else if(data.data.aqi >= 151 && data.data.aqi <= 200){
+                            airCondition = 'Unhealthy';
+                        } else if(data.data.aqi >= 201 && data.data.aqi <= 300){
+                            airCondition = 'Very unhealthy';
+                        } else if(data.data.aqi >= 300){
+                            airCondition = 'Hazardous';
+                        }
+                        airPollution.textContent = `Air Pollution: ${airCondition}`;
+                        console.log('air pollution', airPollution);
                         console.log(data.data); 
-                        console.log(particulateTen);
-                        console.log(particulateTwo);
+                        console.log('particolato fine', particulateTen);
+                        console.log('particolato grosso', particulateTwo);
                         let cityName = data.data.city.name;
+
+                        location.textContent = cityName;
                         console.log(cityName);
+
                     }
                 }
 
@@ -60,16 +85,8 @@ btn.onclick = async function getData() {
         //In case of errors, shows 
         .catch(error =>
             console.log(error)
-
-
-
         );
-
-
-
-
 };
-
     }
 
 
@@ -86,4 +103,25 @@ openSearchBar.addEventListener('click', function () {
     } else {
        document.querySelector('.input-container').style.visibility = 'hidden'
     }
+})
+
+
+//search fires when enter button is pressed on INPUT
+
+inputField.addEventListener('keypress', function(e){
+    if(e.key === 'Enter' && inputField.value ==""){
+        
+        errorOne.style.visibility = 'visible';
+        errorOne.textContent = 'Please type a city name';
+        document.cursor.style.display = 'none';
+
+    } else if(e.key === 'Enter' && inputField.value != ""){
+        btn.onclick();
+        inputField.value="";
+    }
+})
+
+//preventing the page to refresh when logout button is pressed or clicked..
+logoutButton.addEventListener('click', function(e){
+    e.preventDefault();
 })
