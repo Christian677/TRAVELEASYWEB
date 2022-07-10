@@ -21,7 +21,7 @@ btn.onclick = async function getData() {
 
     let city = document.querySelector('#city').value;
 
-    const api_key = '';
+    const api_key = '       ';
 
 
     //API CALL  with axios                   
