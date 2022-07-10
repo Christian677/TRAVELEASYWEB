@@ -14,6 +14,9 @@ btn.onclick = async function getData() {
         errorOne.textContent = 'Please type a city name';
 
     } else {
+        errorOne.style.visibility = 'visible';
+        errorOne.textContent = 'Loading, please wait...';
+
 
     let city = document.querySelector('#city').value;
 
@@ -28,6 +31,7 @@ btn.onclick = async function getData() {
             async response => {
 
                 let data = await response.data
+                
 
                 //if the request can't be processed (city is not found)
 
@@ -46,12 +50,13 @@ btn.onclick = async function getData() {
 
                     } else if (data.status == 'ok') {
                         errorOne.style.visibility = 'hidden';
-                        let particulateTen = data.data.forecast.daily.pm10[2].avg;
-                        let particulateTwo = data.data.forecast.daily.pm25[2].avg;
+                        let particulateTen = _.get(data, "data.forecast.daily.pm10[2].avg", 0);
+                        let particulateTwo = _.get(data, "data.forecast.daily.pm25[2].avg", 0);
                         let location = document.querySelector('#location');
                         let airPollution = document.querySelector('#air');
-                        console.log(data.data)
-                        console.log(data.data.aqi);
+                        let particulateTenValue = document.querySelector('#part-Ten');
+                        particulateTenValue.textContent = `Particulate matter average quantity: ${particulateTen}`;
+
                         
                         if (data.data.aqi >= 0 && data.data.aqi <= 50){
                             airCondition = 'Good';
@@ -65,16 +70,19 @@ btn.onclick = async function getData() {
                             airCondition = 'Very unhealthy';
                         } else if(data.data.aqi >= 300){
                             airCondition = 'Hazardous';
+                        } else if(!data.data.aqi || data.data.aqi == "" ){
+                            airCondition ="Not available";
                         }
+                        
+
                         airPollution.textContent = `Air Pollution: ${airCondition}`;
                         console.log('air pollution', airPollution);
                         console.log(data.data); 
                         console.log('particolato fine', particulateTen);
                         console.log('particolato grosso', particulateTwo);
-                        let cityName = data.data.city.name;
+                        let cityName =`City: ${data.data.city.name}`;
 
                         location.textContent = cityName;
-                        console.log(cityName);
 
                     }
                 }
@@ -117,7 +125,6 @@ inputField.addEventListener('keypress', function(e){
 
     } else if(e.key === 'Enter' && inputField.value != ""){
         btn.onclick();
-        inputField.value="";
     }
 })
 

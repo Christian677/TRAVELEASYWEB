@@ -165,18 +165,39 @@ input {
     flex-direction: column;
 }
 
-.location-container, .airpollution{
+.location-container{
 display: block;
 height:50px;
 justify-content: center;
 }
 
-#location, #air{
+.airpollution{
+    display: block;
+    height:50px;
+    justify-content: center;
+}
+
+#location, #air {
     text-align: center;
     position: relative;
     top:15px;
     letter-spacing: 1px;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
+}
+
+#part-Ten{
+    padding:0px 10px 0px 10px;
+    text-align: center;
+    position: relative;
+    top:15px;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+.partTen-container{
+display: block;
+height:50px;
+justify-content: center;
 }
 
 
