@@ -7,8 +7,7 @@
 
 body {
     background-color: grey;
-    background: url('/pics/180828102621-air-pollution-shanghai-2018-0223-super-tease.jpg');
-    background-repeat: no-repeat;
+    background-image: url('../pics/180828102621-air-pollution-shanghai-2018-0223-super-tease.jpg');
     background-size: cover;
     font-family: Montserrat;
 }
@@ -185,7 +184,7 @@ justify-content: center;
     font-size: 0.8rem;
 }
 
-#part-Ten{
+#part-Ten, #part-Two{
     padding:0px 10px 0px 10px;
     text-align: center;
     position: relative;
@@ -194,7 +193,7 @@ justify-content: center;
     font-size: 0.8rem;
 }
 
-.partTen-container{
+.partTen-container, .partTwo-container{
 display: block;
 height:50px;
 justify-content: center;
@@ -246,9 +245,14 @@ justify-content: center;
 /*MOBILE*/
 
 @media only screen and (max-width: 415px) {
+
+    body{
+        height:100vh;
+    }
     .external-container {
         width: 92%;
         margin: 0 auto;
+        height:95vh;
     }
 
     .open-search-container{
@@ -284,11 +288,12 @@ justify-content: center;
 /* IPHONE SE */
 @media only screen and (max-width: 376px){
     body{
-        height:105vh;
+        height:100vh;
     }
+    
 
     .external-container{
-        height:95vh;
+        height:110vh;
     }
     
     #location{

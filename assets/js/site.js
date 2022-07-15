@@ -55,7 +55,9 @@ btn.onclick = async function getData() {
                         let location = document.querySelector('#location');
                         let airPollution = document.querySelector('#air');
                         let particulateTenValue = document.querySelector('#part-Ten');
+                        let particulateTwoValue = document.querySelector('#part-Two');
                         particulateTenValue.textContent = `Particulate matter average quantity: ${particulateTen}`;
+                        particulateTwoValue.textContent = `Particulate matter average quantity: ${particulateTwo}`;
 
                         
                         if (data.data.aqi >= 0 && data.data.aqi <= 50){
